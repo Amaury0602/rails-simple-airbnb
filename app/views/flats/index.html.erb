@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+        <h1><strong>Here's all the appartments</strong></h1>
+        <% @flats.each do |flat| %>
+          <div class="border p-3 m-3 w-75 box-shadow shadow-lg bg-white rounded">
+            <h3> <%= link_to flat.name, flat_path(flat) %></h3>
+            <h4> <%= flat.address %></h4>
+            <p> <%= flat.description %></p>
+            <ul class="list-unstyled list-inline">
+              <li><%= "#{flat.price_per_night} € "%></li>
+              <li><%= flat.number_of_guests %></li>
+            </ul>
+          </div>
+        <% end %>
+
+        <%= link_to "Add a flat", new_flat_path %>
+
+    </div>
+  </div>
+</div>
